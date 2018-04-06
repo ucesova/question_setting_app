@@ -44,7 +44,7 @@
 			mymap.fitBounds(earthquakelayer.getBounds());
 		}
 		
-	//Code to track the user location, now based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
+	//Code to track the user locationremoving the previous markers, now based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
 		
 	
 	// placeholders for the L.marker and L.circle representing user's current position and accuracy    
@@ -60,7 +60,7 @@
       var radius = e.accuracy / 2;
 
       current_position = L.marker(e.latlng).addTo(mymap)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+        //.bindPopup("You are within " + radius + " meters from this point").openPopup();
 
       current_accuracy = L.circle(e.latlng, radius).addTo(mymap);
     }
