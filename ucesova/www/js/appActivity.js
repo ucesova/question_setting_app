@@ -44,6 +44,8 @@
 			mymap.fitBounds(earthquakelayer.getBounds());
 		}
 		
+	var marker; // define the global variable to hold the position marker.
+		
 		// code to track the user location
 		function trackLocation() {
 			if (navigator.geolocation) {
@@ -63,8 +65,16 @@
 		} */
 		
 		function showPosition(position) {
-			L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 5}).addTo(mymap);
-			mymap.setView([position.coords.latitude, position.coords.longitude], 13);
+			if(marker || marker === false) { // based on https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
+				marker = new L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 5});
+				mymap.addLayer(marker);
+				mymap.setView([position.coords.latitude, position.coords.longitude], 13);
+			} else {
+				mymap.removeLayer(marker)
+				marker = new L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 5});
+				mymap.addLayer(marker);
+				mymap.setView([position.coords.latitude, position.coords.longitude], 13);
+			}
 		}
 		
 		// setView(position.coords.latitude, position.coords.longitude, 13)
