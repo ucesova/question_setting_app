@@ -1,2 +1,2 @@
-# week5app
-Testing server and ajax on a phone
+# Quiz_App
+A location-based quiz app
