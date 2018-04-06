@@ -47,25 +47,19 @@
 	//Code to track the user locationremoving the previous markers, now based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
 		
 	
-	// placeholders for the L.marker and L.circle representing user's current position and accuracy    
+	/* // placeholders for the L.marker and L.circle representing user's current position and accuracy    
     var current_position;
-	//var current_accuracy;
 
     function onLocationFound(e) {
-      // if position defined, then remove the existing position marker and accuracy circle from the map
+      // if position defined, then remove the existing position marker from the map
       if (current_position) {
           mymap.removeLayer(current_position);
-          //mymap.removeLayer(current_accuracy);
       }
-
-	  
 
       var radius = e.accuracy / 2;
 
       current_position = L.circle(e.latlng,radius).addTo(mymap)
         //.bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-      //current_accuracy = L.circle(e.latlng, radius).addTo(mymap);
     }
 	
     function onLocationError(e) {
@@ -82,6 +76,33 @@
 
     // call locate every 3 seconds... forever
     setInterval(locate, 3000);
+	 */
+	
+	// Second alternative
+	
+	// code to track the user location
+		var position_marker
+			
+		function trackLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.watchPosition(showPosition);
+				// intentos de centrar el mapa en torno a la posicion del usuario
+				//navigator.geolocation.setView(showPosition); //(https://w3c.github.io/geolocation-api/#high-accuracy)
+				//navigator.geolocation.scrollMap(showPosition);
+				//no resulta e incluso hace que no me aparezca el marker
+			} else {
+				document.getElementById('showLocation').innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		
+		function showPosition(position) {
+			if (position_marker){
+				mymap.removeLayer(position_marker);
+			}
+			position_marker = L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 4}).addTo(mymap);
+			mymap.setView([position.coords.latitude, position.coords.longitude], 13);
+		}
+		
 	
 	
 	//////////////
