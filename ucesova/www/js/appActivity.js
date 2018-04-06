@@ -100,7 +100,7 @@
 				mymap.removeLayer(position_marker);
 			}
 			position_marker = L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 4}).addTo(mymap);
-			mymap.setView([position.coords.latitude, position.coords.longitude], 4);
+			mymap.setView([position.coords.latitude, position.coords.longitude], 25);
 		}
 		
 	
