@@ -43,41 +43,8 @@
 			//change the map zoom so that all the data is shown
 			mymap.fitBounds(earthquakelayer.getBounds());
 		}
-	
-	// my personal try
-	/* var marker; // define the global variable to hold the position marker.
 		
-		// code to track the user location
-		function trackLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.watchPosition(showPosition);
-				// intentos de centrar el mapa en torno a la posicion del usuario
-				//navigator.geolocation.setView(showPosition); //(https://w3c.github.io/geolocation-api/#high-accuracy)
-				//navigator.geolocation.scrollMap(showPosition);
-				//no resulta e incluso hace que no me aparezca el marker
-			} else {
-				document.getElementById('showLocation').innerHTML = "Geolocation is not supported by this browser.";
-			}
-		}
-
-		
-		function showPosition(position) {
-			if(marker || marker === false) { // based on https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
-				marker = L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 5});
-				mymap.addLayer(marker);
-				mymap.setView([position.coords.latitude, position.coords.longitude], 13);
-			} else {
-				mymap.removeLayer(marker)
-				marker = L.circleMarker([position.coords.latitude, position.coords.longitude], {radius: 5});
-				mymap.addLayer(marker);
-				mymap.setView([position.coords.latitude, position.coords.longitude], 13);
-			}
-		}
-		 */
-		// setView(position.coords.latitude, position.coords.longitude, 13)
-		// http://leafletjs.com/reference-1.3.0.html#locate-options
-		
-	//know based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
+	//Code to track the user location, now based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
 		
 	
 	// placeholders for the L.marker and L.circle representing user's current position and accuracy    
