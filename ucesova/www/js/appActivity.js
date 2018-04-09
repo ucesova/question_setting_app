@@ -140,8 +140,11 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 
 	// code to create a proximity alert
 		
+		
 		function distanceToPOI(){
-			
+			if (distance < 0.005) {
+				position_marker.bindPopup("</b>Here should appear a question<br/>and alternatives.");
+			}
 		}
 	
 	//////////////
