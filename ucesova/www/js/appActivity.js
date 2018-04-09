@@ -116,7 +116,7 @@ function getDistanceFromPoint(position){
 	var distance = calculateDistance(position.coords.latitude, position.coords.longitude, lat,lng, 'K');
 	document.getElementById('showDistance').innerHTML = "Distance: " + distance;
 	
-	var AlertRadius = 0.06
+	var alertRadius = 0.06
 	/* // code to create a proximity alert 1er intento
 		if (distance < 0.06) {
 			position_marker.bindPopup("</b>la distancia es menor a 0.06<br/>and alternatives.");
