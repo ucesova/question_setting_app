@@ -121,8 +121,10 @@ function getDistanceFromPoint(position){
 	
 	// code to create a proximity alert 1er intento
 		if (distance < 0.06) {
-				position_marker.bindPopup("</b>Here should appear a question<br/>and alternatives.");
-			} 
+			position_marker.bindPopup("</b>la distancia es menor a 0.06<br/>and alternatives.");
+		} else {
+			position_marker.bindPopup("</b>la distancia es mayor a 0.06<br/>and alternatives.");
+		}
 	
 	/* // code to create a proximity alert 2do intento
 		if (distance < 0.06) {
