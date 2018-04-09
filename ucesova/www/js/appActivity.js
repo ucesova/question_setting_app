@@ -126,15 +126,17 @@ function getDistanceFromPoint(position){
 	
 // code to create a proximity alert 2do intento
 	if (distance < alertRadius) {
-		var popup = L.popup()
+		alert("alerta!!!!");
+		/* var popup = L.popup()
 		.setLatLng(51.557102 -0.113329)
 		.setContent('<p>menor!<br />posible respuesta 1.</p>')
-		.openOn(mymap);
+		.openOn(mymap); */
 	} else { 
-		L.popup()
+		alert("No alerta!!!!");
+		/* L.popup()
 		.setLatLng(51.557102 -0.113329)
 		.setContent('<p>mayor!<br />posible respuesta 1.</p>')
-		.openOn(mymap);
+		.openOn(mymap); */
 	}	
 }
 // code adapted from https://www.htmlgoodies.com/beyond/javascript/calculate-the-distance-between-two-points-inyour-web-apps.html
