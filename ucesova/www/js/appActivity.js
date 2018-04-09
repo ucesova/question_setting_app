@@ -119,15 +119,18 @@ function getDistanceFromPoint(position){
 	var distance = calculateDistance(position.coords.latitude, position.coords.longitude, lat,lng, 'K');
 	document.getElementById('showDistance').innerHTML = "Distance: " + distance;
 	
-	// code to create a proximity alert
+	/* // code to create a proximity alert 1er intento
 		if (distance < 0.06) {
 				position_marker.bindPopup("</b>Here should appear a question<br/>and alternatives.");
-			}
-		
-	/* var popup = L.popup()
-    .setLatLng(51.557102 -0.113329)
-    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-    .openOn(mapid); */
+			} */
+	
+	// code to create a proximity alert 2do intento
+		if (distance < 0.06) {
+				var popup = L.popup()
+				.setLatLng(51.557102 -0.113329)
+				.setContent('<p>pregunta 1!<br />posible respuesta 1.</p>')
+				.openOn(mapid);
+		}
 }
 // code adapted from https://www.htmlgoodies.com/beyond/javascript/calculate-the-distance-between-two-points-inyour-web-apps.html
 function calculateDistance(lat1, lon1, lat2, lon2, unit) {
