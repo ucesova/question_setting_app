@@ -86,6 +86,7 @@ var position_marker
 function trackLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.watchPosition(showPosition);
+		navigator.geolocation.getCurrentPosition(getDistanceFromPoint);
 		} else {
 			document.getElementById('showLocation').innerHTML = "Geolocation is not supported by this browser.";
 		}
@@ -126,13 +127,13 @@ function getDistanceFromPoint(position){
 	
 // code to create a proximity alert 2do intento
 	if (distance < alertRadius) {
-		alert("alerta!!!!");
+		alert("you are close to a point of interest!!!!");
 		/* var popup = L.popup()
 		.setLatLng(51.557102 -0.113329)
 		.setContent('<p>menor!<br />posible respuesta 1.</p>')
 		.openOn(mymap); */
 	} else { 
-		alert("No alerta!!!!");
+		alert("You are not close yet to a point of interest!!!!");
 		/* L.popup()
 		.setLatLng(51.557102 -0.113329)
 		.setContent('<p>mayor!<br />posible respuesta 1.</p>')
