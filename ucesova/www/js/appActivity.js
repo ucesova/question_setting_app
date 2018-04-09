@@ -121,7 +121,7 @@ function getDistanceFromPoint(position){
 	
 	// code to create a proximity alert 1er intento
 		if (distance < 0.06) {
-				mymap.addTo(mymap).bindPopup("</b>Here should appear a question<br/>and alternatives.");
+				position_marker.bindPopup("</b>Here should appear a question<br/>and alternatives.");
 			} 
 	
 	/* // code to create a proximity alert 2do intento
