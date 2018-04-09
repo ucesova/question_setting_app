@@ -113,8 +113,8 @@
 function getDistanceFromPoint(position){
 	//find the coordinates of a point to test using this website: https://itouchmap.com/latlong.html
 	// these are the coordinates of my building's garden
-	var lat = 51.557131 
-	var lng = -0.113221
+	var lat = 51.557102 
+	var lng = -0.113329
 	// returns the distance in kilometers
 	var distance = calculateDistance(position.coords.latitude, position.coords.longitude, lat,lng, 'K');
 	document.getElementById('showDistance').innerHTML = "Distance: " + distance;
@@ -142,7 +142,7 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 		
 		
 		function distanceToPOI(){
-			if (distance < 0.005) {
+			if (distance < 0.06) {
 				position_marker.bindPopup("</b>Here should appear a question<br/>and alternatives.");
 			}
 		}
