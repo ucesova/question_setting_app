@@ -21,11 +21,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title> Week 3&4 </title>
+    <title> Quiz App </title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,7 +135,10 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 		  <div id="mapid" style="width:600px; height:400px;"></div>
-          <p>Type the html file name here - note you need to include .html</p><input type="text" name="filename" id="filename" size=50>
+		  <p>Type the html file name here - note you need to include .html</p><input type="text" name="filename" id="filename" size=50>
+		  <b>This code will display your current location</b>
+			<div id='showDistance'>Distance will be displayed here</div>
+			<button id='getDistance' onclick='getDistance()'>Click Me to Calculate Distance</button>
 		  <div id="ajaxtest" style="width: 1600px; height: 20px;"></div>
 		  </div>
           </div>
