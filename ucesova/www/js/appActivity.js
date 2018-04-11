@@ -12,37 +12,38 @@ id: 'mapbox.streets'
 // create a variable that will hold the XMLHttpRequest() - this must be done outside a function so that all the functions can use the same variable
 var client;
 // and a variable that will hold the layer itself – we need to do this outside the function so that we can use it to remove the layer later on
-var earthquakelayer;
+var POIlayer;
 	
-// create the code to get the Earthquakes data using an XMLHttpRequest
-function getEarthquakes() {
+// create the code to get the POIs data using an XMLHttpRequest
+function getPOI() {
 	client = new XMLHttpRequest();
 
-client.open('GET','https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
-	client.onreadystatechange = earthquakeResponse; // note don't use earthquakeResponse() withbrackets as that doesn't work
+client.open('GET','http://developer.cege.ucl.ac.uk:30293/getGeoJSON/participants/geocoded_address');
+	client.onreadystatechange = POIResponse; // note don't use POIResponse() withbrackets as that doesn't work
 	client.send();
 }
 // create the code to wait for the response from the data server, and process the response once it is received
-function earthquakeResponse() {
+function POIResponse() {
 // this function listens out for the server to say that the data is ready - i.e. has state 4
 	if (client.readyState == 4) {
 		// once the data is ready, process the data
-		var earthquakedata = client.responseText;
-		loadEarthquakelayer(earthquakedata);
+		var POIdata = client.responseText;
+		loadPOIlayer(POIdata);
 	}
 }		
 // convert the received data - which is text - to JSON format and add it to the map
-function loadEarthquakelayer(earthquakedata) {
+function loadPOIlayer(POIdata) {
 		
 	// convert the text to JSON
-	var earthquakejson = JSON.parse(earthquakedata);
+	var POIjson = JSON.parse(POIdata);
 		
 	// add the JSON layer onto the map -it will apper using the default icons
-	earthquakelayer = L.geoJson(earthquakejson).addTo(mymap);
+	POIlayer = L.geoJson(POIjson).addTo(mymap);
 			
 	//change the map zoom so that all the data is shown
-	mymap.fitBounds(earthquakelayer.getBounds());
+	mymap.fitBounds(POIlayer.getBounds());
 }
+
 		
 //Code to track the user locationremoving the previous markers, now based on https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
 		
@@ -102,11 +103,12 @@ function showPosition(position) {
 		
 // get distance
 	
+/* (Now this code is inside trackLocation) 
 function getDistance(){
 	alert('getting distance')
 	// getDistanceFromPoint is the function called once the distance has been found
 	navigator.geolocation.getCurrentPosition(getDistanceFromPoint);	
-}
+} */
 
 function getDistanceFromPoint(position){
 	//find the coordinates of a point to test using this website: https://itouchmap.com/latlong.html
