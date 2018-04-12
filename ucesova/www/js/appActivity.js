@@ -18,7 +18,7 @@ var POIlayer;
 function getPOI() {
 	client = new XMLHttpRequest();
 
-client.open('GET','http://developer.cege.ucl.ac.uk:30293/getGeoJSON/participants/geocoded_address');
+client.open('GET','http://developer.cege.ucl.ac.uk:30293/getGeoJSON/questions/geom');
 	client.onreadystatechange = POIResponse; // note don't use POIResponse() withbrackets as that doesn't work
 	client.send();
 }
