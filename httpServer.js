@@ -35,7 +35,7 @@ app.get('/postgistest', function (req,res) {
 			console.log("not able to get connection "+ err);
 			res.status(400).send(err);
 		}
-		client.query('SELECT name FROM united_kingdom_counties'
+		client.query('SELECT name FROM questions'
 	,function(err,result) {
 			done();
 			if(err){
@@ -100,7 +100,7 @@ app.get('/getPOI', function (req,res) {
 		res.send("hello world from the HTTP server");
 	});
 
-// making the GeoJSON server more flexible
+// making the GeoJSON server more flexible to return GeoJSON from any table
 app.get('/getGeoJSON/:tablename/:geomcolumn', function (req,res) {
 	pool.connect(function(err,client,done) {
 		if(err){
