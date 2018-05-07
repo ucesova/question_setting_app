@@ -40,32 +40,34 @@
     <link rel="shortcut icon" href="images/favicon.png">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!-- <link rel="canonical" href="http://www.example.com/">-->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
-    
-	<!-- the following links add the CSS and Javascript required for the Leaflet Map -->
+    <!-- the following links add the CSS and Javascript required for the Leaflet Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
-    integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="crossorigin=""/>
-	
+    integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+    crossorigin=""/>
 	<script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
-    integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="crossorigin="">
-	</script>
-	
+    integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+    crossorigin=""></script>
     <!-- the following CSS is used to set the size of the Map -->
     <style type="text/css">
     #mapid { height: 180px; }
     </style>
-	
+	<style>
+   
+    </style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Questions Setting App</span>
+          <span class="mdl-layout-title">User Guide</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -113,38 +115,24 @@
       <main class="mdl-layout__content mdl-color--grey-100" id="maindiv">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-            <!-- the mapid div will hold the map -->
-            <div id="mapid" style="width: 1300px; height: 400px;"></div>
+           <p>Welcome to the question setting app is where you can define the questions that are going to be displayed to the user of the Quiz App when he reaches a place where you located  a question. </p><br/>
+		   <p>How to do it?</p><br />
+		   <ol>
+			<li>In the menu go to “Define the questions”.</li>
+			<li>In the map you can locate the place about which you want to make a question.</li>
+			<li>Click on the map and you will see a popup with the coordinates of that points.</li>
+			<li>Copy the coordinates from the pop up and paste them in the form, separating latitude and longitude.</li>
+			<li>Define the question that you want to ask to the user about that location, four possible answers and then select which one is the correct. </li>
+			<li>Click on “Start upload data”. This will save your question and location so then it can be used by the Quiz app. </li>
+			<li>You should see “your question and choices were saved”.</li>
+			<li>To add a new question, reload the page.</li>
+		   </ol>
           </div>
           <div class="demo-charts mdl-cell mdl-color--white-100">
-						
-						<div>
-						
-			<br />
-			<label for="question">Add here the question about this location:</label><input type="text" size="50" id="question"/><br /><br />
-			<label for="choice1">choice 1:</label><input type="text" size="30" id="choice1"/><br />
-			<label for="choice2">choice 2:</label><input type="text" size="30" id="choice2"/><br />
-			<label for="choice3">choice 3:</label><input type="text" size="30" id="choice3"/><br />
-			<label for="choice4">choice 4:</label><input type="text" size="30" id="choice4"/><br /><br />
-
-			<p>Which one is the correct choice?</p>
-				choice 1: <input type="radio" name="archstyle" id="option1"/><br />
-				choice 2: <input type="radio" name="archstyle" id ="option2"/><br />
-				choice 3: <input type="radio" name="archstyle" id ="option3"/><br />
-				choice 4: <input type="radio" name="archstyle" id ="option4"/><br />
-
-			<br />
-			<br />
-			<div id="dataUploadResult">Add here the coordinates of the point where you want to set this question</div>
-			<label for="latitude">Latitude</label><input type="text" size="25" id="latitude"/><br />
-			<label for="longitude">Longitude</label><input type="text" size="25" id="longitude"/><br />
-
-			<p>Click here to upload the data</p>
-			<button id="startUpload" onclick="startDataUpload()">Start Data Upload</button>
-			<br />
 
 			</div>
-			
+
+<script src="./js/uploadData.js"> </script>		  
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
             
             <div class="demo-separator mdl-cell--1-col"></div>
@@ -202,11 +190,5 @@
       </svg>
       <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-	<!--the following script allows to save the questions, choices, location, etc to the database -->
-	<script src="./js/uploadData.js"> </script>		  
-	<!--the following script will load the map and the basemap tiles. It also defines the functions to track the user's location, 
-	process the geoJSON data from the database, calculate the distance between the user and the Pois and promt a proximity alert and show the question of the close POI.
-	-->
-	<script src="js/appActivity.js"></script>
   </body>
 </html>
