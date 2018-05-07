@@ -67,7 +67,7 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Questions Setting App</span>
+          <span class="mdl-layout-title">User Guide</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -115,77 +115,20 @@
       <main class="mdl-layout__content mdl-color--grey-100" id="maindiv">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-            <!-- the mapid div will hold the map -->
-            <div id="mapid" style="width: 1300px; height: 400px;"></div>
-            <!-- the following script will load the map and set the default view and zoom, as well as loading the basemap tiles -->
-            <script>
-            // load the map
-            var mymap = L.map('mapid').setView([51.524707, -0.133494], 16);
-            // load the tiles
-            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Map data &copy; <aref="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
-            '<ahref="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            id: 'mapbox.streets'
-            }).addTo(mymap);
-			// create a geoJSON feature -
-			var geojsonFeature = {
-			 "type": "Feature",
-			 "properties": {
-			 "name": "Location:",
-			 "popupContent": "This is where UCL is based"
-			 },
-			 "geometry": {
-			 "type": "Point",
-			 "coordinates": [-0.133494, 51.524707]
-			 }
-			};
-			// and add it to the map
-			L.geoJSON(geojsonFeature).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
-
-			// create a custom popup
-            var popup = L.popup();
-            // create an event detector to wait for the user's click event and then use the popup to show them where they clicked
-            // note that you don't need to do any complicated maths to convert screen coordinates to real world coordiantes - the Leaflet API does this for you
-            function onMapClick(e) {
-            popup
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
-            .openOn(mymap);
-            }
-           // now add the click event detector to the map
-           mymap.on('click', onMapClick);
-            </script>
+           <p>Welcome to the question setting app is where you can define the questions that are going to be displayed to the user of the Quiz App when he reaches a place where you located  a question. </p><br/>
+		   <p>How to do it?</p><br />
+		   <ol>
+			<li>In the menu go to “Define the questions”.</li>
+			<li>In the map you can locate the place about which you want to make a question.</li>
+			<li>Click on the map and you will see a popup with the coordinates of that points.</li>
+			<li>Copy the coordinates from the pop up and paste them in the form, separating latitude and longitude.</li>
+			<li>Define the question that you want to ask to the user about that location, four possible answers and then select which one is the correct. </li>
+			<li>Click on “Start upload data”. This will save your question and location so then it can be used by the Quiz app. </li>
+			<li>You should see “your question and choices were saved”.</li>
+			<li>To add a new question, reload the page.</li>
+		   </ol>
           </div>
           <div class="demo-charts mdl-cell mdl-color--white-100">
-						
-						<div>
-						
-
-			<br />
-			<label for="question">Add here the question about this location:</label><input type="text" size="50" id="question"/><br /><br />
-			<label for="choice1">choice 1:</label><input type="text" size="30" id="choice1"/><br />
-			<label for="choice2">choice 2:</label><input type="text" size="30" id="choice2"/><br />
-			<label for="choice3">choice 3:</label><input type="text" size="30" id="choice3"/><br />
-			<label for="choice4">choice 4:</label><input type="text" size="30" id="choice4"/><br /><br />
-
-
-
-			<p>Which one is the correct choice?</p>
-				choice 1: <input type="radio" name="archstyle" id="option1"/><br />
-				choice 2: <input type="radio" name="archstyle" id ="option2"/><br />
-				choice 3: <input type="radio" name="archstyle" id ="option3"/><br />
-				choice 4: <input type="radio" name="archstyle" id ="option4"/><br />
-
-			<br />
-			<br />
-			<div id="dataUploadResult">Add here the coordinates of the point where you want to set this question</div>
-			<label for="latitude">Latitude</label><input type="text" size="25" id="latitude"/><br />
-			<label for="longitude">Longitude</label><input type="text" size="25" id="longitude"/><br />
-
-			<p>Click here to upload the data</p>
-			<button id="startUpload" onclick="startDataUpload()">Start Data Upload</button>
-			<br />
 
 			</div>
 
